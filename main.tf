@@ -20,7 +20,7 @@ resource "aws_s3_bucket_object" "static_files" {
       ".js"   = "application/javascript"
       ".png"  = "image/png"
       ".jpg"  = "image/jpeg"
-    }, regex("\\.[^.]+$"), "application/octet-stream"
+    }, regex("\\.[^.]+$", each.key), "application/octet-stream"
   )
 }
 
